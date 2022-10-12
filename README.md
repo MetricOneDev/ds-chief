@@ -35,9 +35,9 @@ The IOU token allows for chaining governance contracts. An arbitrary number of
 `DSChief`, `DSPrism`, or other contracts of that kind may essentially use the
 same governance token by accepting the IOU token of the `DSChief` contract
 before it as a governance token. E.g., given three `DSChief` contracts,
-`chiefA`, `chiefB`, and `chiefC`, with `chiefA.GOV` being the `MKR` token,
+`chiefA`, `chiefB`, and `chiefC`, with `chiefA.GOV` being the `GOV_TOKEN` token,
 setting `chiefB.GOV` to `chiefA.IOU` and `chiefC.GOV` to `chiefB.IOU` allows all
-three contracts to essentially run using a common pool of `MKR`.
+three contracts to essentially run using a common pool of `GOV_TOKEN`.
 
 
 ## Approval Voting
