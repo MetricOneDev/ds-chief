@@ -198,8 +198,8 @@ contract DSChiefTest is DSThing, DSTest {
         address    zero_address = address(0);
         address nonzero_address = address(1);
         slate[0] = nonzero_address;
-        gov.approve(address(chief), 80000 ether);
-        chief.lock(80000 ether);
+        gov.approve(address(chief), 80001 ether);
+        chief.lock(80001 ether);
         chief.vote(slate);
         chief.lift(nonzero_address);
         assertEq(chief.hat(), nonzero_address);

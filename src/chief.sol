@@ -39,7 +39,7 @@ contract DSChiefApprovals is DSThing {
 
     bool public live;
 
-    uint256 constant LAUNCH_THRESHOLD = 80_000 * 10 ** 18; // 80K GOV_TOKEN launch threshold
+    uint256 public constant threshold = 80_000 * 10 ** 18; // 80K GOV_TOKEN threshold
 
     event Etch(bytes32 indexed slate);
 
@@ -57,7 +57,7 @@ contract DSChiefApprovals is DSThing {
         note
     {
         require(!live);
-        require(hat == address(0) && approvals[address(0)] >= LAUNCH_THRESHOLD);
+        require(hat == address(0) && approvals[address(0)] >= threshold, "DSChiefApprovals/not enough votes on 0x address");
         live = true;
     }
 
@@ -122,7 +122,7 @@ contract DSChiefApprovals is DSThing {
         public
         note
     {
-        require(approvals[whom] > approvals[hat]);
+        require(approvals[whom] > threshold && approvals[whom] > approvals[hat], "DSChiefApprovals/not enough votes");
         hat = whom;
     }
 
